@@ -1,0 +1,22 @@
+
+<div class="container text-center">
+    <div class="row">
+        <% jobs.forEach((job) => { %>
+            <div class="col">
+                <div class="card" style="width: 25rem;background-color: transparent;border: 2px solid white;">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= job.status %></h5>
+                    <h4 class="card-title"><%= job.company %></h4>
+                    <h6 class="card-title"><%= job.role %></h6>
+                    <p class="card-text"><%= job.location %></p>
+                    <p class="card-text"><%= job.salary %></p>
+                    <% job.skills.forEach((skill)=>{ %>
+                        <button type="button" class="btn btn-primary"><%= skill %></button>
+                        <% })%>
+                        <p class="card-text"><a style="color: white;margin-top: 1.8%;border:1px solid green;" href="/job/<%=job.id%>" class="btn btn-outline-warning">view deatils</a></p>
+                    </div>
+                </div>
+          </div>
+        <% }) %>
+    </div>
+  </div>

@@ -1,7 +1,7 @@
 import express, { urlencoded } from "express";
 import path from "path";
 import expressEjsLayouts from "express-ejs-layouts";
-import UserController from "./src/controller/user.controller.js"
+import UserController from "./src/controller/job.controller.js"
 const userController = new UserController()
 
 const app = express();
@@ -15,5 +15,10 @@ console.log(path.resolve("src","views"))
 app.set("views", path.resolve("src", "views"));
 
 //create routes here
-app.get("/",userController.getLoginPage)
+app.get("/",userController.getLandingPage)
+app.get("/jobs",userController.getjobsListPage)
+app.get("/login",userController.getLoginPage)
+app.get("/job/:id",userController.getJobDetailsPage)
+app.post("/login",userController.authenticateUser)
+
 export default app;

@@ -1,0 +1,70 @@
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+            <img src="https://files.codingninjas.com/web-banner-28759.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">SDE oppertunity in <%= job.location %> at <%= job.company %></h5>
+              <% if(auth){ %>
+                <span>
+                   <a href="update/<%= id %>"><i class="bi bi-pencil-square"></i></a>
+                    <i class="bi bi-journal-x" style="color:red"></i>
+                </span>
+                <% } %>
+              <h5 class="card-title"><%= job.status %></h5>
+                    <h4 class="card-title"><%= job.company %></h4>
+                    <h6 class="card-title"><%= job.role %></h6>
+                    <h6 class="card-text"><%= job.location %></h6>
+                    <h6 class="card-text"><%= job.salary %></h6>
+                    <h6 class="card-text">Number of openings<%= job.openings %></h6>
+                    <h6 class="card-text">Number of people applied<%= job.salary %></h6>
+                    <% job.skills.forEach((skill)=>{ %>
+                        <button type="button" class="btn btn-primary"><%= skill %></button>
+                    <% })%>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Apply now
+                      </button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Apply Now</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="card" style="width: 18rem;">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <form action="/submit" method="post">
+                                            <div class="input-group mb-3">
+                                                <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
+                                                <input type="text" class="form-control" aria-label="Name" aria-describedby="inputGroup-sizing-default" name="name" required>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                              <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                                              <input type="email" class="form-control" aria-label="Email" aria-describedby="inputGroup-sizing-default" name="email" required>
+                                            </div>
+                                            <div class="input-group mb-3">
+                                              <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+                                              <input type="password" class="form-control" aria-label="Password" aria-describedby="inputGroup-sizing-default" name="password" required>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                          </form>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+            </div>
+          </div>
+          
+      </div>
+    </div>
+  </div>
